@@ -40,7 +40,7 @@ Todo el flujo está pensado para **entender el porqué**, no solo el resultado.
 
 Tecnologías utilizadas
 
-- Python 3
+- Python
 - pandas
 - numpy
 - yfinance
