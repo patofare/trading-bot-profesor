@@ -1,39 +1,78 @@
-Bot Profesor de Análisis Técnico
+Trading Bot Profesor – Análisis Técnico Educativo
 
-Proyecto educativo de análisis técnico en Python que combina indicadores clásicos, gestión de riesgo y explicaciones didácticas para aprender a interpretar el mercado, no solo operar.
+Trading Bot Profesor es un proyecto **educativo** desarrollado en Python que permite analizar activos financieros utilizando **indicadores técnicos clásicos**, explicando cada decisión como si fuera un profesor.
 
-¿Qué hace este bot?
+El objetivo no es automatizar trading real, sino **aprender y entender** cómo funcionan los indicadores y las reglas de análisis técnico.
 
-- Analiza activos de **Argentina y USA**
-- Calcula indicadores técnicos:
-  - EMA 20 / EMA 50
-  - RSI (14)
-  - Volumen relativo
+---
+
+Objetivo del proyecto
+
+- Aprender análisis técnico desde una perspectiva práctica
+- Comprender indicadores como:
+  - EMA (medias móviles)
+  - RSI
   - ATR (volatilidad)
-- Genera señales:
-  - BUY / BUY FUERTE / HOLD / SELL
-- Asigna un score de fuerza
-- Calcula Stop Loss y Take Profit basados en ATR
-- Explica por qué se genera cada señal (modo profesor)
-- Visualiza el análisis con gráficos en Matplotlib
+  - Volumen relativo
+- Traducir indicadores técnicos a **explicaciones en lenguaje natural**
+- Construir una base sólida para futuros proyectos en:
+  - Data Science
+  - Trading cuantitativo
+  - Análisis financiero
 
- Enfoque educativo
+---
 
-El objetivo no es automatizar trading, sino:
-- Entender qué mide cada indicador
-- Aprender cuándo **NO** operar
-- Interpretar contexto, tendencia y volatilidad
-- Practicar análisis técnico de forma responsable
+¿Qué hace el bot?
 
-Tecnologías
+- Descarga datos históricos del mercado (Yahoo Finance)
+- Calcula indicadores técnicos
+- Evalúa reglas de trading educativas
+- Genera:
+  - Señal (Compra / Venta / Neutral)
+  - Score de fuerza de señal
+  - Explicación detallada del razonamiento
+  - Stop Loss y Take Profit basados en ATR
+- Muestra gráficos con señales
 
-- Python
-- yfinance
+Todo el flujo está pensado para **entender el porqué**, no solo el resultado.
+
+---
+
+Tecnologías utilizadas
+
+- Python 3
 - pandas
+- numpy
+- yfinance
 - matplotlib
 
-Ejecución
+Arquitectura modular:
+- `core/` → lógica principal del análisis
+- `indicators/` → indicadores técnicos
+- `signals/` → reglas y explicaciones
+- `visualization/` → gráficos
+- `utils/` → utilidades generales
 
-```bash
-pip install -r requirements.txt
-python main.py
+---
+
+Disclaimer
+
+Este proyecto es **100% educativo**.  
+No constituye asesoramiento financiero ni recomendaciones de inversión.
+
+El autor no se responsabiliza por el uso del código en entornos reales de trading.
+
+---
+
+Próximas mejoras
+
+- Módulo teórico interactivo (EMA, RSI, cruces, volatilidad)
+- Más indicadores técnicos
+- Backtesting simple
+- Exportación de reportes
+- Integración con notebooks
+
+---
+
+Desarrollado por **Patricio Faré** 
+Proyecto personal orientado a aprendizaje, data y finanzas.
