@@ -5,7 +5,7 @@ from education.menu import theory_menu
 
 def welcome_menu():
     print("===================================")
-    print("  BIENVENIDO AL BOT PROFESOR 📊📘 ")
+    print("  BIENVENIDO AL TRADING 📊📘 ")
     print("===================================")
     print("¿Qué querés hacer?")
     print("1 - Práctica de análisis técnico")
@@ -73,10 +73,10 @@ def main():
             print("\n Explicación del RSI:")
             print(rsi_explanation)
 
-            plot_price_with_signals(df, ticker, signal, score)
+            plot_price_with_signals(df, ticker, signal, score, stop_loss=stop_loss, take_profit=take_profit)
 
         elif option == "2":
-            plot_price_with_signals(df, ticker, signal, score)
+            plot_price_with_signals(df, ticker, signal, score, stop_loss=stop_loss, take_profit=take_profit)
 
         elif option == "3":
             print("\n Explicación del RSI:")

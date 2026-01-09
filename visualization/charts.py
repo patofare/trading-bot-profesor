@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def plot_price_with_signals(df, ticker, signal, score):
+def plot_price_with_signals(df, ticker, signal, score, stop_loss=None, take_profit=None):
     fig, (ax_price, ax_rsi) = plt.subplots(
         2,
         1,
@@ -17,6 +17,23 @@ def plot_price_with_signals(df, ticker, signal, score):
 
     if "EMA_50" in df.columns:
         ax_price.plot(df["Date"], df["EMA_50"], label="EMA 50")
+
+    # ====== STOP LOSS / TAKE PROFIT ======
+    if stop_loss is not None:
+        ax_price.axhline(
+            stop_loss,
+            linestyle="--",
+            linewidth=2,
+            label="Stop Loss"
+    )
+
+    if take_profit is not None:
+        ax_price.axhline(
+            take_profit,
+            linestyle="--",
+            linewidth=2,
+            label="Take Profit"
+    )
 
     # Color según fuerza de señal
     if score >= 3:
