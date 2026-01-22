@@ -2,6 +2,7 @@ from visualization.charts import plot_price_with_signals
 from core.analysis import run_analysis
 from utils.market_selector import select_market_and_ticker
 from education.menu import theory_menu
+from utils.cache_manager import clear_data_cache
 
 def welcome_menu():
     print("===================================")
@@ -88,6 +89,15 @@ def main():
 
         else:
             print("Opción inválida")
+
+        print("\nℹLos datos descargados se usan solo para este análisis...")
+        clean = input("\n¿Querés borrar los datos descargados? (s/n): ").strip().lower()
+
+        if clean == "s":
+            clear_data_cache()
+        else:
+            print(" Datos conservados en cache")
+
 
         print("\n¿Qué querés hacer ahora?")
         print("1 - Volver al menú principal")
