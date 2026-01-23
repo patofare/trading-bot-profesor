@@ -90,7 +90,7 @@ def main():
         else:
             print("Opción inválida")
 
-        print("\nℹLos datos descargados se usan solo para este análisis...")
+        print("\nLos datos descargados se usan solo para este análisis...")
         clean = input("\n¿Querés borrar los datos descargados? (s/n): ").strip().lower()
 
         if clean == "s":

@@ -39,13 +39,13 @@ def plot_price_with_signals(df, ticker, signal, score, stop_loss=None, take_prof
     if score >= 3:
         color = "darkgreen"
         signal = "BUY FUERTE"
-    elif score == 2:
+    elif score >= 2:
         color = "green"
         signal = "BUY"
     elif score <= -3:
         color = "darkred"
         signal = "SELL FUERTE"
-    elif score == -2:
+    elif score <= -2:
         color = "red"
         signal = "SELL"
     else:

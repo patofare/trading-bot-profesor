@@ -1,5 +1,8 @@
 def generate_signal(df):
     last = df.iloc[-1]
+    price = last["Close"]
+    ema20 = last["EMA_20"]
+    dist_ema20 = abs(price - ema20) / ema20
     score = 0
     reasons = []
 
@@ -18,6 +21,17 @@ def generate_signal(df):
     else:
         score -= 1
         reasons.append("La EMA 20 está por debajo de la EMA 50")
+
+    # Timing para entrar
+
+    if dist_ema20 > 0.03:
+        score -= 1
+        reasons.append(
+            "El precio está extendido respecto a la EMA 20, se recomienda esperar un pullback")
+    elif 0.005 <= dist_ema20 <= 0.015:
+        score += 0.5
+        reasons.append(
+            "El precio se encuentra cerca de la EMA 20, zona favorable de entrada")
 
     # RSI como CONTEXTO, no como gatillo
     
@@ -41,7 +55,6 @@ def generate_signal(df):
     # ATR
 
     atr = last["ATR"]
-    price = last["Close"]
     atr_pct = atr / price
 
     if atr_pct > 0.04:
@@ -54,13 +67,14 @@ def generate_signal(df):
 
     if score >= 3:
         signal = "BUY FUERTE"
-    elif score == 2:
+    elif score >= 2:
         signal = "BUY"
-    elif score == -2:
-        signal = "SELL"
     elif score <= -3:
         signal = "SELL FUERTE"
+    elif score <= -2:
+        signal = "SELL"
     else:
         signal = "HOLD"
+
 
     return signal, score, reasons
